@@ -1,0 +1,123 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &4360828239472613114
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1918058241585664441}
+  - component: {fileID: 1566729753414068055}
+  m_Layer: 0
+  m_Name: SnakeRefab
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1918058241585664441
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4360828239472613114}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 4982623992669593466}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1566729753414068055
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4360828239472613114}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: feb92d49b65738c438262a07cec69cc9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  InitSnakeLength: 4
+  SegmentRefab: {fileID: 5460737059464728122, guid: 415cd2fff420d9541a756a0e09e123a4, type: 3}
+  Head: {fileID: 4104332601302022867}
+--- !u!1001 &6346472528581239845
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 1918058241585664441}
+    m_Modifications:
+    - target: {fileID: 2105121924097309535, guid: 4542c5232b68c2c4ba5f24ce577b1c5a, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2105121924097309535, guid: 4542c5232b68c2c4ba5f24ce577b1c5a, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2105121924097309535, guid: 4542c5232b68c2c4ba5f24ce577b1c5a, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2105121924097309535, guid: 4542c5232b68c2c4ba5f24ce577b1c5a, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2105121924097309535, guid: 4542c5232b68c2c4ba5f24ce577b1c5a, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2105121924097309535, guid: 4542c5232b68c2c4ba5f24ce577b1c5a, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2105121924097309535, guid: 4542c5232b68c2c4ba5f24ce577b1c5a, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2105121924097309535, guid: 4542c5232b68c2c4ba5f24ce577b1c5a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2105121924097309535, guid: 4542c5232b68c2c4ba5f24ce577b1c5a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2105121924097309535, guid: 4542c5232b68c2c4ba5f24ce577b1c5a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3487402533620040374, guid: 4542c5232b68c2c4ba5f24ce577b1c5a, type: 3}
+      propertyPath: m_Name
+      value: Snake Head
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 4542c5232b68c2c4ba5f24ce577b1c5a, type: 3}
+--- !u!114 &4104332601302022867 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: -2240901580755476746, guid: 4542c5232b68c2c4ba5f24ce577b1c5a, type: 3}
+  m_PrefabInstance: {fileID: 6346472528581239845}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f09f404d4540c2a47a1926abd91a3fc9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &4982623992669593466 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2105121924097309535, guid: 4542c5232b68c2c4ba5f24ce577b1c5a, type: 3}
+  m_PrefabInstance: {fileID: 6346472528581239845}
+  m_PrefabAsset: {fileID: 0}
