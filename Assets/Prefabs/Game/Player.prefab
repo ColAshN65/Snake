@@ -47,6 +47,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   SnakeRefab: {fileID: 1918058241585664441, guid: a1d431fc9b2057e43b94b4bb8d27e563, type: 3}
   snake: {fileID: 0}
+  GameArea: {fileID: 7583699482336926863}
+  X: 0
+  Y: 0
 --- !u!61 &7583699482336926863
 BoxCollider2D:
   m_ObjectHideFlags: 0

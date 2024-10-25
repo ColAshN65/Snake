@@ -1,3 +1,4 @@
+using Assets.Scripts.Game.Settings;
 using System;
 using UnityEngine;
 
@@ -32,19 +33,19 @@ namespace Assets.Scripts.Snake
         public void UpdatewDirection()
         {
             //—читывание нажатий клавиш и установка соответствующего направлени€
-            if (Input.GetKeyDown(KeyCode.W) && _direction != Vector2.down)
+            if (Input.GetKeyDown(ControlSystem.Up) && _direction != Vector2.down)
             {
                 _direction = Vector2.up;
             }
-            else if (Input.GetKeyDown(KeyCode.S) && _direction != Vector2.up)
+            else if (Input.GetKeyDown(ControlSystem.Down) && _direction != Vector2.up)
             {
                 _direction = Vector2.down;
             }
-            else if (Input.GetKeyDown(KeyCode.A) && _direction != Vector2.right)
+            else if (Input.GetKeyDown(ControlSystem.Left) && _direction != Vector2.right)
             {
                 _direction = Vector2.left;
             }
-            else if (Input.GetKeyDown(KeyCode.D) && _direction != Vector2.left)
+            else if (Input.GetKeyDown(ControlSystem.Right) && _direction != Vector2.left)
             {
                 _direction = Vector2.right;
             }
@@ -57,6 +58,27 @@ namespace Assets.Scripts.Snake
             gameObject.transform.position.x + _direction.x / 2,   // аждый шаг происходит на 0.5 
             gameObject.transform.position.y + _direction.y / 2,
             0.0f);
+        }
+        public void Move(Bounds area)
+        {
+            Vector3 newPos = new Vector3(
+            gameObject.transform.position.x + _direction.x / 2,   // аждый шаг происходит на 0.5 
+            gameObject.transform.position.y + _direction.y / 2,
+            0.0f);
+
+            if (newPos.x > area.max.x)
+                newPos.x = newPos.x * -1 + 0.5f;
+
+            if (newPos.x < area.min.x)
+                newPos.x = newPos.x * -1 - 0.5f;
+
+            if (newPos.y > area.max.y)
+                newPos.y = newPos.y * -1 + 0.5f;
+
+            if (newPos.y < area.min.y)
+                newPos.y = newPos.y * -1 - 0.5f;
+
+            gameObject.transform.position = newPos;
         }
     }
 }

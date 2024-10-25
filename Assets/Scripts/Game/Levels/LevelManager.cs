@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using static UnityEngine.Rendering.DebugUI;
 
 namespace Assets.Scripts.Game
 {
@@ -16,9 +17,12 @@ namespace Assets.Scripts.Game
     {
         private void Start()
         {
+
             InterfaceInit();
             FoodInit();
             PlayerInit();
+
+            Score = GameProcessing.LocalScore;
 
             Debug.Log("LevelController Loaded");
         }
@@ -43,8 +47,6 @@ namespace Assets.Scripts.Game
             UIManager.ActionBack += (obj, e) => { ActionBack(); };
             UIManager.ActionContinue += (obj, e) => { ActionContinue(); };
             UIManager.ActionRestart += (obj, e) => { ActionRestart(); };
-
-            UIManager.ScoreUpdate(0);
         }
 
 
@@ -60,7 +62,7 @@ namespace Assets.Scripts.Game
         }
         public void ActionContinue()
         {
-            GameProcessing.GeneralScore += Score;
+            GameProcessing.IncreaseScoring(Score);
             ContinueLevel();
         }
 
@@ -90,7 +92,7 @@ namespace Assets.Scripts.Game
 
         protected void RestartGame()
         {
-            Score = 0;  
+            Score = GameProcessing.LocalScore;  
             FoodManager.RespawnAllFood();
             PlayerManager.SnakeRespawn();
         }

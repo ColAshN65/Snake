@@ -13,7 +13,7 @@ namespace Assets.Scripts.Snake
     {
         public int InitSnakeLength = 4;
 
-
+        [SerializeField] private float speed;
 
         [Header("Elements")]
         //Эталон сегмента змеи
@@ -21,6 +21,8 @@ namespace Assets.Scripts.Snake
 
         //Голова змеи
         [SerializeField]protected HeadCell Head;
+
+        public Bounds GameArea;
 
         //Список элементов тела змеи
         protected List<BodyCell> body;
@@ -103,7 +105,7 @@ namespace Assets.Scripts.Snake
                 }
 
                 //Передвижение головы
-                Head.Move();
+                Head.Move(GameArea);
 
             }
 

@@ -1,17 +1,32 @@
-﻿using System;
+﻿using Assets.Scripts.Game.Settings;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 namespace Assets.Scripts.Game
 {
-    public class GameManager : MonoBehaviour
+    public class MenuManager : MonoBehaviour
     {
-        GameProcessing gameProcessing = new GameProcessing();
 
+        [SerializeField] private Text generalScoreText;
+
+        public void Start()
+        {
+            GameProcessing.ResetScoring();
+            generalScoreText.text = "General Score: " + GameProcessing.GeneralScore;
+        }
+
+        public void OnApplicationQuit()
+        {
+            GameProcessing.SaveScore();
+        }
 
         //Старт игры
         public void PlayGame()

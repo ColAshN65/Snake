@@ -12,6 +12,7 @@ namespace Assets.Scripts.Player
     {
         [SerializeField] private Transform SnakeRefab;
         [SerializeField] private SnakeEntity snake;
+        [SerializeField] private BoxCollider2D GameArea;
 
         [Header("Start Position")]
         [SerializeField] private int X = 0;
@@ -37,6 +38,7 @@ namespace Assets.Scripts.Player
                 snake.Kill();
 
             snake = Instantiate(SnakeRefab).GetComponent<SnakeEntity>();
+            snake.GameArea = GameArea.bounds;
             snake.transform.position = new Vector3(X, Y, 0);
             snake.SnakeHeadCollision += SnakeCollision;
             SnakeSpawn();

@@ -10,13 +10,50 @@ namespace Assets.Scripts.Game
 {
     public class GameProcessing : MonoBehaviour
     {
-        internal static int GeneralScore {  get; set; }
-
-        [SerializeField] private FoodManager foodManager;
-
-        static GameProcessing()
+        public static int GeneralScore
         {
-            GeneralScore = 0;
+            get => _generalScore;
+            private set
+            {
+                _generalScore = value;
+                SaveScore();
+            }
+        }
+
+        public static int LocalScore
+        {
+            get => _localScore;
+            private set => _localScore = value;
+        }
+
+
+        private static int _localScore = 0;
+        private static int _generalScore = 0;
+
+        private void Start()
+        {
+            GeneralScore = PlayerPrefs.GetInt("score");
+        }
+
+        public static void RecordScoring()
+        {
+            GeneralScore += LocalScore;
+            ResetScoring();
+        }
+
+        public static void ResetScoring()
+        {
+            LocalScore = 0;
+        }
+
+        public static void IncreaseScoring(int value)
+        {
+            LocalScore += value;
+        }
+
+        public static void SaveScore()
+        {
+            PlayerPrefs.SetInt("score", GeneralScore);
         }
     }
 }

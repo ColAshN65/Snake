@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using UnityEngine.SceneManagement;
 
 namespace Assets.Scripts.Game.Levels
 {
@@ -10,7 +11,8 @@ namespace Assets.Scripts.Game.Levels
     {
         protected override void ContinueLevel()
         {
-            
+            GameProcessing.RecordScoring();
+            SceneManager.LoadScene("MainMenu");
         }
     }
 }
