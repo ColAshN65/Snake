@@ -669,7 +669,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1021059629808767939, guid: 6f39cc45adead9a45b8868d24716db9b, type: 3}
       propertyPath: m_Text
-      value: Get a score of over 40 to continue.
+      value: Get a score of over 20 to continue.
       objectReference: {fileID: 0}
     - target: {fileID: 2420700834321000255, guid: 6f39cc45adead9a45b8868d24716db9b, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target

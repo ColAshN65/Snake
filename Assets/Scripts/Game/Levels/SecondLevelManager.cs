@@ -16,7 +16,7 @@ namespace Assets.Scripts.Game.Levels
 
         protected override int SetLevelPassValue()
         {
-            return 2;
+            return 20;
         }
     }
 }

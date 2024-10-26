@@ -686,7 +686,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 2
-  m_BackGroundColor: {r: 0.11213955, g: 0.20287238, b: 0.3773585, a: 0}
+  m_BackGroundColor: {r: 0.41839036, g: 0.4528302, b: 0.35671058, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -1009,7 +1009,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1021059629808767939, guid: 6f39cc45adead9a45b8868d24716db9b, type: 3}
       propertyPath: m_Text
-      value: Get a score of over 60 to continue.
+      value: Get a score of over 30 to continue.
       objectReference: {fileID: 0}
     - target: {fileID: 3584886938346922049, guid: 6f39cc45adead9a45b8868d24716db9b, type: 3}
       propertyPath: m_Pivot.x
