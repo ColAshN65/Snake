@@ -6,13 +6,17 @@ using static UnityEngine.Rendering.DebugUI;
 
 namespace Assets.Scripts.Food
 {
-    [Serializable]
+    //Менеджер поля появления еды
+    //Поле всегда хранит в себе 1 единицу еды, которая после поедания меняет свое расположение
     public class FoodAreaManager : MonoBehaviour
     {
+        //Задается boxColider объекта, содержащего компонент FoodAreaManager
         [SerializeField] private BoxCollider2D boxCollider;
 
+        //Задается эталон создоваемой еды
         [SerializeField] private Transform foodRefab;
 
+        //Задается или хранится заданная или созданная еда
         [SerializeField] private SimpleFoodUnit simpleFoodUnit;
 
         private void Start()

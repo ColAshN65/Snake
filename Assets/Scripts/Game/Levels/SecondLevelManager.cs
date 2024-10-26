@@ -13,5 +13,10 @@ namespace Assets.Scripts.Game.Levels
         {
             SceneManager.LoadScene("ThirdLevel");
         }
+
+        protected override int SetLevelPassValue()
+        {
+            return 2;
+        }
     }
 }

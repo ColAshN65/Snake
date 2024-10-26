@@ -14,5 +14,10 @@ namespace Assets.Scripts.Game.Levels
             GameProcessing.RecordScoring();
             SceneManager.LoadScene("MainMenu");
         }
+
+        protected override int SetLevelPassValue()
+        {
+            return 3;
+        }
     }
 }

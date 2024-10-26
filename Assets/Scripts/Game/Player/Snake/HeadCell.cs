@@ -59,6 +59,8 @@ namespace Assets.Scripts.Snake
             gameObject.transform.position.y + _direction.y / 2,
             0.0f);
         }
+
+        //Передвижение головы змеи в заданной площади
         public void Move(Bounds area)
         {
             Vector3 newPos = new Vector3(
@@ -66,6 +68,8 @@ namespace Assets.Scripts.Snake
             gameObject.transform.position.y + _direction.y / 2,
             0.0f);
 
+            //Проверка на выход головы за границы
+            //В случае выхода голова змеи перемещается на другую сторону
             if (newPos.x > area.max.x)
                 newPos.x = newPos.x * -1 + 0.5f;
 

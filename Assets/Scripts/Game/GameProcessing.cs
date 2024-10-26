@@ -8,7 +8,7 @@ using UnityEngine;
 
 namespace Assets.Scripts.Game
 {
-    public class GameProcessing : MonoBehaviour
+    public static class GameProcessing
     {
         public static int GeneralScore
         {
@@ -30,10 +30,15 @@ namespace Assets.Scripts.Game
         private static int _localScore = 0;
         private static int _generalScore = 0;
 
-        private void Start()
+        static GameProcessing()
         {
             GeneralScore = PlayerPrefs.GetInt("score");
+
         }
+        /*private void Start()
+        {
+            GeneralScore = PlayerPrefs.GetInt("score");
+        }*/
 
         public static void RecordScoring()
         {
@@ -46,9 +51,9 @@ namespace Assets.Scripts.Game
             LocalScore = 0;
         }
 
-        public static void IncreaseScoring(int value)
+        public static void SetScoring(int value)
         {
-            LocalScore += value;
+            LocalScore = value;
         }
 
         public static void SaveScore()

@@ -8,30 +8,25 @@ using UnityEngine;
 
 namespace Assets.Scripts.Player
 {
+    //Менеджер игрока на уровне
     public class PlayerManager : MonoBehaviour
     {
+        //Задается эталон земи для создания
         [SerializeField] private Transform SnakeRefab;
+
+        //Задается или создается и хранится змея
         [SerializeField] private SnakeEntity snake;
+
+        //Задется игровая зона из компонента BoxCollider2D
         [SerializeField] private BoxCollider2D GameArea;
 
+        //Задаются стартовые координаты, если это необходимо
         [Header("Start Position")]
         [SerializeField] private int X = 0;
         [SerializeField] private int Y = 0;
 
 
-        private void SnakeCollision(object sender, ObjectCollisionEventArgs e)
-        {
-            if (e.Trigger.tag == "Wall")
-            {
-                snake.Kill();
-                OnPlayerDies();
-            }
-            else if (e.Trigger.tag == "Food")
-            {
-                snake.SnakeGrow();
-            }
-        }
-
+        //Пересоздает змею
         public void SnakeRespawn()
         {
             if (snake != null)
@@ -43,6 +38,20 @@ namespace Assets.Scripts.Player
             snake.SnakeHeadCollision += SnakeCollision;
             SnakeSpawn();
 
+        }
+
+        //Обработка коллизии змеи
+        private void SnakeCollision(object sender, ObjectCollisionEventArgs e)
+        {
+            if (e.Trigger.tag == "Wall")
+            {
+                snake.Kill();
+                OnPlayerDies();
+            }
+            else if (e.Trigger.tag == "Food")
+            {
+                snake.SnakeGrow();
+            }
         }
 
         private void SnakeSpawn()

@@ -12,15 +12,21 @@ using UnityEngine.UI;
 
 namespace Assets.Scripts.UI
 {
+    //Менеджер интерфейса с пользователем
     public class UIManager : MonoBehaviour
     {
-        [Header("User Interface")]
+        //Для работы всех функций в unity должны быть заданы все графические элементы
+
+
+        [Header("UI Levels")]
         //Меню внутри уровня
         [SerializeField] private Transform LevelMenu;
 
         //Игровой интерфейс
         [SerializeField] private Transform GameUI;
 
+
+        [Header("UI Elements")]
         //Вывод количества очков
         [SerializeField] private Text TextScore;
 
@@ -35,6 +41,9 @@ namespace Assets.Scripts.UI
         [SerializeField] private Button BackButton; 
         //Кнопка продолжения
         [SerializeField] private Button RestartButton;
+
+        //Порог очков, при котором UIManager сделает кнопку "Continue" кликабельной
+        public int LevelPass = 0;
 
         private void Start()
         {
@@ -62,27 +71,31 @@ namespace Assets.Scripts.UI
             if (MenuTextGeneralScore == null)
                 Debug.LogError("Кнопка продолжения не назначена не назначена");
 
+            //Всегда подтягивает общее количество очков самостоятельно
             MenuTextGeneralScore.text = "General Score: " + GameProcessing.GeneralScore;
 
             ButtonInit();
         }
 
-        //Инцииализация кнопок
+        //Инцииализация кнопок с подпиской на событие нажатия
         private void ButtonInit()
         {
             //Кнопка продолжения
             if (ContinueButton == null)
                 Debug.LogError("Кнопка продолжения не назначена не назначена");
+            //Подписка на событие нажатия
             ContinueButton.onClick.AddListener(OnActionContinue);
-            ContinueButton.interactable = true;
 
             //Кнопка возврата
             if (BackButton == null)
                 Debug.LogError("Кнопка возвращения не назначена не назначена");
+            //Подписка на событие нажатия
             BackButton.onClick.AddListener(OnActionBack);
 
+            //Кнопка выхода
             if (RestartButton == null)
                 Debug.LogError("Кнопка рестарта не назначена не назначена");
+            //Подписка на событие нажатия
             RestartButton.onClick.AddListener(OnActionRestart);
 
         }
@@ -95,25 +108,34 @@ namespace Assets.Scripts.UI
             GameUI.gameObject.SetActive(!LevelMenu.gameObject.active);
         }
 
+        //Принудительное открытие меню уровня
         public void LevelMenuOpen()
         {
             LevelMenu.gameObject.SetActive(true);
             GameUI.gameObject.SetActive(false);
         }
+
+        //Принудительное сокрытие меню уровня
         public void LevelMenuClose()
         {
             LevelMenu.gameObject.SetActive(false);
             GameUI.gameObject.SetActive(true);
         }
 
+        //Метод обновления всех элементов, связанных с отображением очков.
         public void ScoreUpdate(int score)
         {
             TextScore.text = "Score: " + score;
             MenuTextScore.text = "Score: " + score;
 
-            if(score >= 30 || GameProcessing.GeneralScore >= 20)
+            //В случае набора необходимого количества очков - кнопка продолжения становится активной
+            if(score >= LevelPass)
                 ContinueButton.interactable = true;
         }
+
+        //Описания событий
+        //В основном это события кнопок, дабы основная модель могла обрабатывать нажатия
+        #region Events
 
         public event EventHandler ActionRestart;
         public void OnActionRestart()
@@ -134,5 +156,6 @@ namespace Assets.Scripts.UI
         {
             ActionContinue?.Invoke(this, EventArgs.Empty);
         }
+        #endregion
     }
 }

@@ -7,11 +7,15 @@ using UnityEngine;
 
 namespace Assets.Scripts.Food
 {
+    //Менеджер всей еды на уровне
     public class FoodManager : MonoBehaviour
     {
-        [SerializeField] private Transform FoodRefab;
-        [SerializeField] private List<FoodAreaManager> FoodFields;
+        //Задается эталон создаваемой еды
+        //Подразумевается, что эталоном должен быть префаб с компонентом FoodAreaManager
+        //[SerializeField] private Transform FoodRefab;
 
+        //Задаются все FoodAreaManager, зоны, в которых появляется еда
+        [SerializeField] private List<FoodAreaManager> FoodFields;
 
         private void Start()
         {
@@ -20,18 +24,10 @@ namespace Assets.Scripts.Food
 
         public void InitAllFoodAreas()
         {
+            //Подписка на сбытия всех полей
             foreach (FoodAreaManager f in FoodFields)
             {
                 f.FoodEated += OnSomeFoodEated;
-            }
-        }
-
-
-        private void DeleteItem(FoodAreaManager foodArea)
-        {
-            if (foodArea != null)
-            {
-                Destroy(foodArea.gameObject);
             }
         }
 
@@ -42,6 +38,7 @@ namespace Assets.Scripts.Food
             SomeFoodEated?.Invoke(sender, e);
         }
 
+        //Пересоздает еду во всех своих зонах
         public void RespawnAllFood()
         {
             foreach (FoodAreaManager foodAreaManager in FoodFields)
